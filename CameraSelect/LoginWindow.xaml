@@ -17,12 +17,12 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Image Source="Resource/登录.jpg" Stretch="Fill" Cursor="Arrow"/>
-        <TextBox x:Name="username" Margin="390,226,332,267" TextWrapping="Wrap" VerticalContentAlignment="Bottom" Foreground="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Cursor="Hand">
+        <TextBox x:Name="username" Margin="390,220,332,267" TextWrapping="Wrap" VerticalContentAlignment="Bottom" Foreground="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Cursor="Hand">
             <TextBox.Background>
                 <ImageBrush Stretch="None"/>
             </TextBox.Background>
         </TextBox>
         <Button x:Name="btn_ok" Margin="370,285,322,191" Click="Button_Click" BorderThickness="0" Opacity="0" Cursor="Hand"/>
-        <PasswordBox x:Name="password" Margin="390,258,332,236" BorderBrush="{x:Null}" Background="{x:Null}" SelectionBrush="{x:Null}" Foreground="White" Cursor="Hand"/>
+        <PasswordBox x:Name="password" Margin="390,254,332,236" BorderBrush="{x:Null}" Background="{x:Null}" SelectionBrush="{x:Null}" Foreground="White" Cursor="Hand"/>
     </Grid>
 </Window>

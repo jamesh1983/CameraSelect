@@ -1,0 +1,22 @@
+﻿<Window x:Class="Personal_Setup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CameraSelect"
+        mc:Ignorable="d"
+        Title="修改密码" Height="450" Width="500" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Label Content="用户名" HorizontalAlignment="Left" Margin="60,60,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TB_Account" HorizontalAlignment="Left" Height="25" Margin="60,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="360"/>
+        <Label Content="旧密码" HorizontalAlignment="Left" Margin="60,120,0,0" VerticalAlignment="Top"/>
+        <Label Content="新密码" HorizontalAlignment="Left" Margin="60,180,0,0" VerticalAlignment="Top"/>
+        <Label Content="确认密码" HorizontalAlignment="Left" Margin="60,240,0,0" VerticalAlignment="Top"/>
+        <Button Content="确定" HorizontalAlignment="Left" Margin="100,350,0,0" VerticalAlignment="Top" Width="75" IsDefault="True" Click="Setup_Confirm_Click"/>
+        <Button Content="取消" HorizontalAlignment="Left" Margin="300,350,0,0" VerticalAlignment="Top" Width="75" IsCancel="True" Click="Setup_Cancel_Click"/>
+        <PasswordBox x:Name="TB_Old_Password" HorizontalAlignment="Left" Margin="60,150,0,0" VerticalAlignment="Top" Width="360" Height="25"/>
+        <PasswordBox x:Name="TB_New_Password" HorizontalAlignment="Left" Margin="60,210,0,0" VerticalAlignment="Top" Width="360" Height="25"/>
+        <PasswordBox x:Name="TB_comfirm_Password" HorizontalAlignment="Left" Margin="60,270,0,0" VerticalAlignment="Top" Width="360" Height="25"/>
+
+    </Grid>
+</Window>

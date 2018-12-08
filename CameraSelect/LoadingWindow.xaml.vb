@@ -1,3 +1,3 @@
-﻿Public Class Window1
+﻿Public Class LoadingWindow
 
 End Class
