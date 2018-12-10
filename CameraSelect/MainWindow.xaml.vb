@@ -193,7 +193,7 @@ Class MainWindow
                     MyConnectionString += System.AppDomain.CurrentDomain.BaseDirectory + "CameraSelect.accdb"
                     Dim OleConn As New OleDbConnection(MyConnectionString)
                     OleConn.Open()
-                    Dim MySQL As String = "INSERT INTO IP_Table (IP, description) VALUE('" + str1 + "','" + str2 + str3 + "')"
+                    Dim MySQL As String = "INSERT INTO [IP_Table] ([IP], [description]) VALUES('" + str1 + "','" + str2 + str3 + "')"
                     Dim SQL_Comm As New OleDbCommand(MySQL, OleConn)
                     SQL_Comm.ExecuteNonQuery()
                     OleConn.Close()
@@ -230,13 +230,13 @@ Class MainWindow
                         If Temp_str3 = Temp_str4 Then
                             Try
                                 Dim UpdateConnString As String = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source="
-                                MyConnectionString += System.AppDomain.CurrentDomain.BaseDirectory + "CameraSelect.accdb"
+                                UpdateConnString += System.AppDomain.CurrentDomain.BaseDirectory + "CameraSelect.accdb"
                                 Dim UpdConn As New OleDbConnection(UpdateConnString)
-                                OleConn.Open()
-                                Dim UpdSQL As String = "UPDATE User_Table SET Password = '" + Temp_str3 + "' WHERE User = '" + Temp_str1 + "'"
+                                UpdConn.Open()
+                                Dim UpdSQL As String = "UPDATE User_Table SET [Password] = '" + Temp_str3 + "' WHERE [User] = '" + Temp_str1 + "'"
                                 Dim SQL_Comm As New OleDbCommand(UpdSQL, UpdConn)
                                 SQL_Comm.ExecuteNonQuery()
-                                OleConn.Close()
+                                UpdConn.Close()
                             Catch ex As Exception
                                 MessageBox.Show(ex.Message, "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Information)
                             End Try
