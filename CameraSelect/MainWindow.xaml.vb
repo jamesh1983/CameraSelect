@@ -7,7 +7,18 @@ Class MainWindow
     Private Myloading_window As LoadingWindow = New LoadingWindow
     Public MyID As String
     Public MyPassword As String
-
+    Private Enum FoucedWebBrowser
+        WebBrowser1
+        WebBrowser2
+        WebBrowser3
+        WebBrowser4
+    End Enum
+    Private BrowserNow As FoucedWebBrowser
+    Private Enum ScreenState
+        FullScreen
+        SplitScreen
+    End Enum
+    Private ScreenStatus As ScreenState
 
     Private Sub MainWindow_Initialized(sender As Object, e As EventArgs) Handles Me.Initialized
 
@@ -24,7 +35,7 @@ Class MainWindow
     End Sub
 
     Private Sub MainWindow_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
-        Dim loginFrm As LoginWindow = New LoginWindow
+
         Dim MapItem As Controls.MenuItem
         Dim MapItem2 As Controls.MenuItem
         Dim MyTable As New Data.DataSet()
@@ -44,15 +55,8 @@ Class MainWindow
         Me.Height = My.Computer.Screen.Bounds.Height
         Me.Width = My.Computer.Screen.Bounds.Width
         Me.WindowState = WindowState.Maximized
-        Myloading_window.Show()
-        '显示登录对话框
+        'Myloading_window.Show()
 
-        loginFrm.ShowDialog()
-
-        If loginFrm.bResult = False Then
-            Myloading_window.Close()
-            Me.Close()
-        End If
         Try
             MyConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=" + System.AppDomain.CurrentDomain.BaseDirectory + "CameraSelect.accdb"
             OleConn = New OleDbConnection(MyConnectionString)
@@ -103,6 +107,20 @@ Class MainWindow
             }
         MapMenu.Items.Add(MapItem)
         AddHandler MapItem.Click, AddressOf Menu_ALL_ClickEvent
+        Me.MyGridColumn2.Width = New GridLength(720, GridUnitType.Star)
+        Me.MyGridColumn3.Width = New GridLength(0, GridUnitType.Star)
+        Me.MyGridRow2.Height = New GridLength(120, GridUnitType.Star)
+        Me.MyGridRow3.Height = New GridLength(0, GridUnitType.Star)
+        ScreenStatus = ScreenState.FullScreen
+        BrowserNow = FoucedWebBrowser.WebBrowser1
+        '显示登录对话框
+        'Dim loginFrm As LoginWindow = New LoginWindow
+        'loginFrm.ShowDialog()
+        'If loginFrm.bResult = False Then
+        '    Myloading_window.Close()
+        '    Me.Close()
+        'End If
+
     End Sub
 
     Private Sub Menu_ALL_ClickEvent(sender As Object, e As RoutedEventArgs)
@@ -166,7 +184,25 @@ Class MainWindow
         Dim address As Uri
         str = "http://Admin:123456@" + str + "/ie.html"
         address = New Uri(str)
-        web_browser.Source = address
+        Select Case ScreenStatus
+            Case ScreenState.FullScreen
+                web_browser.Source = address
+            Case ScreenState.SplitScreen
+                Select Case BrowserNow
+                    Case FoucedWebBrowser.WebBrowser1
+                        web_browser.Source = address
+                        BrowserNow = FoucedWebBrowser.WebBrowser2
+                    Case FoucedWebBrowser.WebBrowser2
+                        web_browser_2.Source = address
+                        BrowserNow = FoucedWebBrowser.WebBrowser3
+                    Case FoucedWebBrowser.WebBrowser3
+                        web_browser_3.Source = address
+                        BrowserNow = FoucedWebBrowser.WebBrowser4
+                    Case FoucedWebBrowser.WebBrowser4
+                        web_browser_4.Source = address
+                        BrowserNow = FoucedWebBrowser.WebBrowser1
+                End Select
+        End Select
     End Sub
 
     Private Sub MenuItem_Close_Click(sender As Object, e As RoutedEventArgs)
@@ -320,5 +356,51 @@ Class MainWindow
             xlBook.Close()
             xlApp.Quit()
         End If
+    End Sub
+
+    Private Sub FullScreenBT(sender As Object, e As RoutedEventArgs)
+        Me.MyGridColumn2.Width = New GridLength(720, GridUnitType.Star)
+        Me.MyGridColumn3.Width = New GridLength(0, GridUnitType.Star)
+        Me.MyGridRow2.Height = New GridLength(120, GridUnitType.Star)
+        Me.MyGridRow3.Height = New GridLength(0, GridUnitType.Star)
+        ScreenStatus = ScreenState.FullScreen
+    End Sub
+
+    Private Sub SplitScreenBT(sender As Object, e As RoutedEventArgs)
+        Me.MyGridColumn2.Width = New GridLength(360, GridUnitType.Star)
+        Me.MyGridColumn3.Width = New GridLength(360, GridUnitType.Star)
+        Me.MyGridRow2.Height = New GridLength(60, GridUnitType.Star)
+        Me.MyGridRow3.Height = New GridLength(60, GridUnitType.Star)
+        ScreenStatus = ScreenState.SplitScreen
+    End Sub
+
+    Private Sub Web_browser4_Navigating(sender As Object, e As NavigatingCancelEventArgs) Handles web_browser_4.Navigating
+        Myloading_window.Visibility = Visibility.Visible
+        mydatagrid.IsEnabled = False
+    End Sub
+
+    Private Sub Web_browser4_Navigated(sender As Object, e As NavigationEventArgs) Handles web_browser_4.Navigated
+        Myloading_window.Visibility = Visibility.Hidden
+        mydatagrid.IsEnabled = True
+    End Sub
+
+    Private Sub Web_browser2_Navigating(sender As Object, e As NavigatingCancelEventArgs) Handles web_browser_2.Navigating
+        Myloading_window.Visibility = Visibility.Visible
+        mydatagrid.IsEnabled = False
+    End Sub
+
+    Private Sub Web_browser2_Navigated(sender As Object, e As NavigationEventArgs) Handles web_browser_2.Navigated
+        Myloading_window.Visibility = Visibility.Hidden
+        mydatagrid.IsEnabled = True
+    End Sub
+
+    Private Sub Web_browser3_Navigating(sender As Object, e As NavigatingCancelEventArgs) Handles web_browser_3.Navigating
+        Myloading_window.Visibility = Visibility.Visible
+        mydatagrid.IsEnabled = False
+    End Sub
+
+    Private Sub Web_browser3_Navigated(sender As Object, e As NavigationEventArgs) Handles web_browser_3.Navigated
+        Myloading_window.Visibility = Visibility.Hidden
+        mydatagrid.IsEnabled = True
     End Sub
 End Class

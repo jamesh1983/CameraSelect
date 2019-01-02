@@ -7,8 +7,19 @@
         xmlns:Odbc="clr-namespace:System.Data.Odbc;assembly=System.Data" x:Name="mainfrm" x:Class="MainWindow"
         mc:Ignorable="d"
         Title="FORMAP/G-PS" Width="1024" Height="780" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Black">
-    <Grid Margin="0,0,0,95" Background="White">
-        <Menu x:Name="MapMenu" VerticalContentAlignment="Top" HorizontalAlignment="Left" Margin="0,145,0,0" Width="100" Background="White" Height="540" VerticalAlignment="Top">
+    <Grid x:Name="MyGrid" Margin="0,0,0,100" Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="MyGridColumn1" Width="100*"/>
+            <ColumnDefinition x:Name="MyGridColumn2" Width="360*"/>
+            <ColumnDefinition x:Name="MyGridColumn3" Width="360*"/>
+            <ColumnDefinition x:Name="MyGridColumn4" Width="200*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="MyGridRow1" Height="15*"/>
+            <RowDefinition x:Name="MyGridRow2" Height="60*"/>
+            <RowDefinition x:Name="MyGridRow3" Height="60*"/>
+        </Grid.RowDefinitions>
+        <Menu x:Name="MapMenu" VerticalContentAlignment="Top" Background="White" Height="590" VerticalAlignment="Top" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Left" Width="100">
             <!--<MenuItem Header="亚洲" VerticalAlignment="Top" Width="50" Height="50" BorderBrush="White" Foreground="Black" OpacityMask="Black" Background="White">
                 <MenuItem Header="土耳其" Background="White" BorderBrush="White" OpacityMask="Black" HorizontalAlignment="Left" Width="157">
                     <MenuItem x:Name="AS_1" Header="伊斯坦堡" Background="White" BorderBrush="White"/>
@@ -27,37 +38,36 @@
             </MenuItem>
             <MenuItem Header="美洲" VerticalAlignment="Top" Width="50" Height="50" Background="White" BorderBrush="White" Foreground="Black" OpacityMask="Black"/>-->
         </Menu>
-        <WebBrowser x:Name="web_browser" Margin="100,145,300,0" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto">
-            <WebBrowser.OpacityMask>
-                <ImageBrush ImageSource="Resource/背景/登录.jpg"/>
-            </WebBrowser.OpacityMask>
-        </WebBrowser>
-        <DataGrid x:Name="mydatagrid" GridLinesVisibility="None" HorizontalAlignment="Right" Width="300" Margin="0,145,0,0" Height="540" VerticalAlignment="Top">
+        <DataGrid x:Name="mydatagrid" GridLinesVisibility="None" Grid.Row="1" Grid.Column="3" Grid.RowSpan="2" Margin="0,0,0,0">
             <DataGrid.ItemBindingGroup>
                 <BindingGroup/>
             </DataGrid.ItemBindingGroup>
         </DataGrid>
-        <Menu x:Name="Personal_Menu" BorderThickness="0" Cursor="Hand" Background="Black" Height="145" VerticalAlignment="Top">
-            <MenuItem Header="文件" Height="30" Width="100" Margin="20,0,0,0" BorderThickness="0" Cursor="Hand" Foreground="White">
+        <Menu x:Name="Personal_Menu" BorderThickness="0" Cursor="Hand" Background="Black" Grid.ColumnSpan="4">
+            <MenuItem Header="文件" Height="30" Width="100" Margin="20,0,0,0" BorderThickness="0" Cursor="Hand" Foreground="White" FontSize="24">
                 <MenuItem Header="打开" BorderThickness="0" BorderBrush="Black" Cursor="Hand" OpacityMask="Black" Foreground="White" Background="Black" Click="MI_Open_Click"/>
                 <MenuItem Header="导入" BorderThickness="0" BorderBrush="Black" Cursor="Hand" OpacityMask="Black" Background="Black" Click="InPutFile_Click"/>
                 <MenuItem Header="导出" BorderThickness="0" BorderBrush="Black" Cursor="Hand" OpacityMask="Black" Background="Black" Click="My_Output_Click"/>
                 <MenuItem Header="退出" BorderThickness="0" Cursor="Hand" Background="Black" Click="MenuItem_Close_Click"/>
             </MenuItem>
-            <MenuItem Header="视图" Height="30" Width="100" BorderThickness="0" Foreground="White">
-                <MenuItem Header="网格" BorderBrush="{x:Null}" BorderThickness="0" Background="Black"/>
-                <MenuItem Header="全屏" BorderBrush="{x:Null}" BorderThickness="0" Background="Black"/>
+            <MenuItem Header="视图" Height="30" Width="100" BorderThickness="0" Foreground="White" FontSize="24">
+                <MenuItem Header="网格" BorderBrush="{x:Null}" BorderThickness="0" Background="Black" Click="SplitScreenBT"/>
+                <MenuItem Header="全屏" BorderBrush="{x:Null}" BorderThickness="0" Background="Black" Click="FullScreenBT"/>
             </MenuItem>
-            <MenuItem Header="设置" Height="30" Width="100" BorderThickness="0" Foreground="White">
+            <MenuItem Header="设置" Height="30" Width="100" BorderThickness="0" Foreground="White" FontSize="24">
                 <MenuItem Header="个人设置" BorderThickness="0" Background="Black" Click="MI_Setup_Click"/>
             </MenuItem>
-            <MenuItem Header="帮助" Height="30" Width="100" BorderThickness="0" Foreground="White">
+            <MenuItem Header="帮助" Height="30" Width="100" BorderThickness="0" Foreground="White" FontSize="24">
                 <MenuItem Header="帮助" BorderThickness="0" Background="Black"/>
                 <MenuItem Header="关于" BorderBrush="{x:Null}" BorderThickness="0" Background="Black" Click="My_About_Box_Click"/>
             </MenuItem>
         </Menu>
-        <Grid HorizontalAlignment="Center" Height="95" Margin="0,685,0,-95" VerticalAlignment="Center" Width="1024">
-            <Label Content="CopyRight" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1024" Height="95" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White"/>
+        <WebBrowser x:Name="web_browser" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.Column="1"/>
+        <WebBrowser x:Name="web_browser_2" Margin="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.Column="2" FlowDirection="RightToLeft" Panel.ZIndex="1"/>
+        <WebBrowser x:Name="web_browser_3" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="2" Grid.Column="1" Panel.ZIndex="2"/>
+        <WebBrowser x:Name="web_browser_4" Margin="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="2" Grid.Column="2" FlowDirection="RightToLeft" Panel.ZIndex="3"/>
+        <Grid HorizontalAlignment="Center" Height="100" Margin="0,305,0,-110" VerticalAlignment="Center" Width="1024" Grid.Row="2" Grid.ColumnSpan="4">
+            <Label Content="CopyRight" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1024" Height="98" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Margin="0,0,0,2"/>
         </Grid>
     </Grid>
 </Window>

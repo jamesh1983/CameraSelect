@@ -52,16 +52,6 @@ Partial Friend NotInheritable Class MySettings
             Return defaultInstance
         End Get
     End Property
-    
-    <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-     Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-     Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-     Global.System.Configuration.DefaultSettingValueAttribute("Dsn=Excel Files")>  _
-    Public ReadOnly Property ConnectionString() As String
-        Get
-            Return CType(Me("ConnectionString"),String)
-        End Get
-    End Property
 End Class
 
 Namespace My
