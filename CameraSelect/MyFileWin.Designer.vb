@@ -23,6 +23,7 @@ Partial Class MyFileWin
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.OpenFileWin = New System.Windows.Forms.OpenFileDialog()
+        Me.SaveFileWin = New System.Windows.Forms.SaveFileDialog()
         Me.SuspendLayout()
         '
         'MyFileWin
@@ -37,4 +38,5 @@ Partial Class MyFileWin
     End Sub
 
     Friend WithEvents OpenFileWin As Forms.OpenFileDialog
+    Friend WithEvents SaveFileWin As Forms.SaveFileDialog
 End Class

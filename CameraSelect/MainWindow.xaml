@@ -6,20 +6,21 @@
         xmlns:local="clr-namespace:CameraSelect"
         xmlns:Odbc="clr-namespace:System.Data.Odbc;assembly=System.Data" x:Name="mainfrm" x:Class="MainWindow"
         mc:Ignorable="d"
-        Title="FORMAP/G-PS" Width="1024" Height="780" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Black">
-    <Grid x:Name="MyGrid" Margin="0,0,0,100" Background="White">
+        Title="FORMAP/G-PS" Width="1024" Height="720" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Black" BorderThickness="1" Topmost="True">
+    <Grid x:Name="MyGrid" Margin="0,0,0,33" Background="Black">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition x:Name="MyGridColumn1" Width="100*"/>
-            <ColumnDefinition x:Name="MyGridColumn2" Width="360*"/>
-            <ColumnDefinition x:Name="MyGridColumn3" Width="360*"/>
-            <ColumnDefinition x:Name="MyGridColumn4" Width="200*"/>
+            <ColumnDefinition x:Name="MyGridColumn1" Width="100"/>
+            <ColumnDefinition x:Name="MyGridColumn2" Width="360"/>
+            <ColumnDefinition x:Name="MyGridColumn3" Width="360"/>
+            <ColumnDefinition x:Name="MyGridColumn4" Width="200"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition x:Name="MyGridRow1" Height="15*"/>
-            <RowDefinition x:Name="MyGridRow2" Height="60*"/>
-            <RowDefinition x:Name="MyGridRow3" Height="60*"/>
+            <RowDefinition x:Name="MyGridRow1" Height="100"/>
+            <RowDefinition x:Name="MyGridRow2" Height="250"/>
+            <RowDefinition x:Name="MyGridRow3" Height="250"/>
+            <RowDefinition Height="120"/>
         </Grid.RowDefinitions>
-        <Menu x:Name="MapMenu" VerticalContentAlignment="Top" Background="White" Height="590" VerticalAlignment="Top" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Left" Width="100">
+        <Menu x:Name="MapMenu" VerticalContentAlignment="Top" Background="White" Grid.Row="1" Grid.RowSpan="2" HorizontalAlignment="Left" Width="100">
             <!--<MenuItem Header="亚洲" VerticalAlignment="Top" Width="50" Height="50" BorderBrush="White" Foreground="Black" OpacityMask="Black" Background="White">
                 <MenuItem Header="土耳其" Background="White" BorderBrush="White" OpacityMask="Black" HorizontalAlignment="Left" Width="157">
                     <MenuItem x:Name="AS_1" Header="伊斯坦堡" Background="White" BorderBrush="White"/>
@@ -43,7 +44,7 @@
                 <BindingGroup/>
             </DataGrid.ItemBindingGroup>
         </DataGrid>
-        <Menu x:Name="Personal_Menu" BorderThickness="0" Cursor="Hand" Background="Black" Grid.ColumnSpan="4">
+        <Menu x:Name="Personal_Menu" BorderThickness="0" Cursor="Hand" Background="Black" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="459">
             <MenuItem Header="文件" Height="30" Width="100" Margin="20,0,0,0" BorderThickness="0" Cursor="Hand" Foreground="White" FontSize="24">
                 <MenuItem Header="打开" BorderThickness="0" BorderBrush="Black" Cursor="Hand" OpacityMask="Black" Foreground="White" Background="Black" Click="MI_Open_Click"/>
                 <MenuItem Header="导入" BorderThickness="0" BorderBrush="Black" Cursor="Hand" OpacityMask="Black" Background="Black" Click="InPutFile_Click"/>
@@ -56,18 +57,24 @@
             </MenuItem>
             <MenuItem Header="设置" Height="30" Width="100" BorderThickness="0" Foreground="White" FontSize="24">
                 <MenuItem Header="个人设置" BorderThickness="0" Background="Black" Click="MI_Setup_Click"/>
+                <MenuItem Header="通讯设置" BorderThickness="0" Background="Black" Click="Communication_Info_Click"/>
             </MenuItem>
             <MenuItem Header="帮助" Height="30" Width="100" BorderThickness="0" Foreground="White" FontSize="24">
                 <MenuItem Header="帮助" BorderThickness="0" Background="Black"/>
                 <MenuItem Header="关于" BorderBrush="{x:Null}" BorderThickness="0" Background="Black" Click="My_About_Box_Click"/>
             </MenuItem>
         </Menu>
-        <WebBrowser x:Name="web_browser" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.Column="1"/>
-        <WebBrowser x:Name="web_browser_2" Margin="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="1" Grid.Column="2" FlowDirection="RightToLeft" Panel.ZIndex="1"/>
-        <WebBrowser x:Name="web_browser_3" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="2" Grid.Column="1" Panel.ZIndex="2"/>
-        <WebBrowser x:Name="web_browser_4" Margin="0,0,0,0" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Row="2" Grid.Column="2" FlowDirection="RightToLeft" Panel.ZIndex="3"/>
-        <Grid HorizontalAlignment="Center" Height="100" Margin="0,305,0,-110" VerticalAlignment="Center" Width="1024" Grid.Row="2" Grid.ColumnSpan="4">
-            <Label Content="CopyRight" HorizontalAlignment="Center" VerticalAlignment="Center" Width="1024" Height="98" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Margin="0,0,0,2"/>
-        </Grid>
+        <WebBrowser x:Name="web_browser" Grid.Row="1" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Auto"/>
+        <WebBrowser x:Name="web_browser_2" Grid.Row="1" Grid.Column="2" FlowDirection="RightToLeft"/>
+        <WebBrowser x:Name="web_browser_3" Grid.Row="2" Grid.Column="1"/>
+        <WebBrowser x:Name="web_browser_4" Grid.Row="2" Grid.Column="2" FlowDirection="RightToLeft"/>
+        <TextBox x:Name="SearchingInput" TextWrapping="Wrap" Grid.Row="0" Grid.Column="1" Margin="500,75,100,0" Grid.ColumnSpan="3" Panel.ZIndex="1" Height="25" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+        <Button x:Name="SearchBt" Height="25" Grid.Row="0" Grid.Column="3" BorderBrush="Black" Background="#FF6C6C6C" HorizontalAlignment="Right" Margin="0,75,0,0" Width="100" Foreground="White" Content="搜索" FlowDirection="RightToLeft" VerticalAlignment="Top" VerticalContentAlignment="Top"/>
+        <Label Grid.Row="3" Grid.Column="0" Content="CopyRight" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="White" Panel.ZIndex="1" Grid.ColumnSpan="4" Height="61" VerticalAlignment="Top"/>
+        <Button Content="" Grid.Column="3" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Width="20" Height="20" Click="MenuItem_Close_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="Resource/exit.jpg"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

@@ -21,4 +21,8 @@ Public Class LoginWindow
             MsgBox("请输入正确的用户名和密码！", , "提示")
         End If
     End Sub
+
+    Private Sub LoginWin_Close_Click(sender As Object, e As RoutedEventArgs)
+        Me.Close()
+    End Sub
 End Class

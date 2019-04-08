@@ -4,10 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CameraSelect"
-        mc:Ignorable="d"
-        Title="Loading" Height="600" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Topmost="True" WindowStyle="None">
-    <Grid x:Name="LoadingFrm" Width="800" Height="600">
-        <Label x:Name="Loading" Content="连接中。。。" HorizontalAlignment="Center" Margin="55,35,0,0" VerticalAlignment="Center" FontSize="36"/>
-
+        mc:Ignorable="d" Height="300" Width="400" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" Topmost="True" BorderBrush="Black" WindowStyle="None" BorderThickness="1">
+    <Grid x:Name="LoadingFrm" Width="400" Height="300" Margin="0">
+        <Label x:Name="Loading" Content="连接中。。。" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" FontSize="20"/>
     </Grid>
 </Window>

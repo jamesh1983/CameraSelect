@@ -20,22 +20,17 @@ Class MainWindow
     End Enum
     Private ScreenStatus As ScreenState
 
-    Private Sub MainWindow_Initialized(sender As Object, e As EventArgs) Handles Me.Initialized
-
-    End Sub
-
-    Private Sub Web_browser_Navigating(sender As Object, e As NavigatingCancelEventArgs) Handles web_browser.Navigating
+    Private Sub Web_browser_Navigating(sender As Object, e As NavigatingCancelEventArgs) Handles web_browser.Navigating, web_browser_2.Navigating, web_browser_3.Navigating, web_browser_4.Navigating
         Myloading_window.Visibility = Visibility.Visible
         mydatagrid.IsEnabled = False
     End Sub
 
-    Private Sub Web_browser_Navigated(sender As Object, e As NavigationEventArgs) Handles web_browser.Navigated
+    Private Sub Web_browser_Navigated(sender As Object, e As NavigationEventArgs) Handles web_browser.Navigated, web_browser_2.Navigated, web_browser_3.Navigated, web_browser_4.Navigated
         Myloading_window.Visibility = Visibility.Hidden
         mydatagrid.IsEnabled = True
     End Sub
 
     Private Sub MainWindow_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
-
         Dim MapItem As Controls.MenuItem
         Dim MapItem2 As Controls.MenuItem
         Dim MyTable As New Data.DataSet()
@@ -56,7 +51,6 @@ Class MainWindow
         Me.Width = My.Computer.Screen.Bounds.Width
         Me.WindowState = WindowState.Maximized
         'Myloading_window.Show()
-
         Try
             MyConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=" + System.AppDomain.CurrentDomain.BaseDirectory + "CameraSelect.accdb"
             OleConn = New OleDbConnection(MyConnectionString)
@@ -114,13 +108,12 @@ Class MainWindow
         ScreenStatus = ScreenState.FullScreen
         BrowserNow = FoucedWebBrowser.WebBrowser1
         '显示登录对话框
-        'Dim loginFrm As LoginWindow = New LoginWindow
-        'loginFrm.ShowDialog()
-        'If loginFrm.bResult = False Then
-        '    Myloading_window.Close()
-        '    Me.Close()
-        'End If
-
+        Dim loginFrm As LoginWindow = New LoginWindow
+        loginFrm.ShowDialog()
+        If loginFrm.bResult = False Then
+            Myloading_window.Close()
+            Me.Close()
+        End If
     End Sub
 
     Private Sub Menu_ALL_ClickEvent(sender As Object, e As RoutedEventArgs)
@@ -167,6 +160,7 @@ Class MainWindow
             OleConn.Close()
             If MyTable.Tables(0).Rows.Count = 0 Then
                 MessageBox.Show("该地区无对应IP内容", "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                mydatagrid.ItemsSource = ""
             Else
                 mydatagrid.ItemsSource = MyTable.Tables(0).DefaultView
             End If
@@ -297,6 +291,7 @@ Class MainWindow
     Private Sub InPutFile_Click(sender As Object, e As RoutedEventArgs)
         Dim MyInputWindow As MyFileWin = New MyFileWin()
         Dim FileNameStr As String
+        MyInputWindow.IsInput = True
         If MyInputWindow.ShowDialog() = Forms.DialogResult.OK Then
             FileNameStr = MyInputWindow.FileNameString
             Try
@@ -321,6 +316,7 @@ Class MainWindow
             Catch ex As Exception
                 MessageBox.Show(ex.Message, "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Information)
             End Try
+            MessageBox.Show("输入完成！", "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
 
@@ -332,6 +328,7 @@ Class MainWindow
         Dim xlsheet As Microsoft.Office.Interop.Excel.Worksheet '定义工作表类 
         Dim xlTable As Microsoft.Office.Interop.Excel.DataTable
         FileNameStr = MyOutputWindow.FileNameString
+        MyOutputWindow.IsInput = False
         If MyOutputWindow.ShowDialog() = Forms.DialogResult.OK Then
             Dim MyConnectionString As String = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source="
             MyConnectionString += System.AppDomain.CurrentDomain.BaseDirectory + "CameraSelect.accdb"
@@ -355,6 +352,7 @@ Class MainWindow
             xlBook.SaveAs(FileNameStr)
             xlBook.Close()
             xlApp.Quit()
+            MessageBox.Show("输出完成！", "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
     End Sub
 
@@ -374,33 +372,47 @@ Class MainWindow
         ScreenStatus = ScreenState.SplitScreen
     End Sub
 
-    Private Sub Web_browser4_Navigating(sender As Object, e As NavigatingCancelEventArgs) Handles web_browser_4.Navigating
-        Myloading_window.Visibility = Visibility.Visible
-        mydatagrid.IsEnabled = False
+    Private Sub SearchBT_Click(sender As Object, e As RoutedEventArgs) Handles SearchBt.Click
+        Dim TempSearchStr As String
+        TempSearchStr = SearchingInput.Text
+        Try
+            Dim MyConnectionString As String
+            MyConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=" + System.AppDomain.CurrentDomain.BaseDirectory + "CameraSelect.accdb"
+            Dim OleConn As New OleDbConnection(MyConnectionString)
+            OleConn.Open()
+            Dim MySQL As String = "SELECT IP, description FROM IP_Table WHERE IP LIKE '" + TempSearchStr + "'" + " or description LIKE '" + TempSearchStr + "'"
+            Dim MyTable As New Data.DataSet()
+            Dim MyAdapter As New OleDbDataAdapter(MySQL, OleConn)
+            MyAdapter.Fill(MyTable)
+            OleConn.Close()
+            If MyTable.Tables(0).Rows.Count = 0 Then
+                MessageBox.Show("无对应内容", "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                mydatagrid.ItemsSource = ""
+            Else
+                mydatagrid.ItemsSource = MyTable.Tables(0).DefaultView
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        End Try
     End Sub
 
-    Private Sub Web_browser4_Navigated(sender As Object, e As NavigationEventArgs) Handles web_browser_4.Navigated
-        Myloading_window.Visibility = Visibility.Hidden
-        mydatagrid.IsEnabled = True
+    Private Sub Communication_Info_Click(sender As Object, e As RoutedEventArgs)
+        MessageBox.Show("请访问系统目录下CameraSelect.accdb数据库获取相应信息。", "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Information)
     End Sub
 
-    Private Sub Web_browser2_Navigating(sender As Object, e As NavigatingCancelEventArgs) Handles web_browser_2.Navigating
-        Myloading_window.Visibility = Visibility.Visible
-        mydatagrid.IsEnabled = False
-    End Sub
-
-    Private Sub Web_browser2_Navigated(sender As Object, e As NavigationEventArgs) Handles web_browser_2.Navigated
-        Myloading_window.Visibility = Visibility.Hidden
-        mydatagrid.IsEnabled = True
-    End Sub
-
-    Private Sub Web_browser3_Navigating(sender As Object, e As NavigatingCancelEventArgs) Handles web_browser_3.Navigating
-        Myloading_window.Visibility = Visibility.Visible
-        mydatagrid.IsEnabled = False
-    End Sub
-
-    Private Sub Web_browser3_Navigated(sender As Object, e As NavigationEventArgs) Handles web_browser_3.Navigated
-        Myloading_window.Visibility = Visibility.Hidden
-        mydatagrid.IsEnabled = True
+    Private Sub WebMouseClick(sender As Object, e As MouseButtonEventArgs) Handles web_browser.MouseLeftButtonUp
+        If ScreenStatus = ScreenState.FullScreen Then
+            Me.MyGridColumn2.Width = New GridLength(360, GridUnitType.Star)
+            Me.MyGridColumn3.Width = New GridLength(360, GridUnitType.Star)
+            Me.MyGridRow2.Height = New GridLength(60, GridUnitType.Star)
+            Me.MyGridRow3.Height = New GridLength(60, GridUnitType.Star)
+            ScreenStatus = ScreenState.SplitScreen
+        ElseIf ScreenStatus = ScreenState.SplitScreen Then
+            Me.MyGridColumn2.Width = New GridLength(720, GridUnitType.Star)
+            Me.MyGridColumn3.Width = New GridLength(0, GridUnitType.Star)
+            Me.MyGridRow2.Height = New GridLength(120, GridUnitType.Star)
+            Me.MyGridRow3.Height = New GridLength(0, GridUnitType.Star)
+            ScreenStatus = ScreenState.FullScreen
+        End If
     End Sub
 End Class
