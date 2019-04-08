@@ -253,84 +253,230 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\登录.jpg" />
+    <Content Include="Resource\登录.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\背景\主页-新.jpg" />
     <Resource Include="Resource\背景\主页-新1.jpg" />
     <Resource Include="Resource\背景\主页-进入.jpg" />
-    <Resource Include="Resource\背景\地图\Adiyaman.jpg" />
-    <Resource Include="Resource\背景\地图\Afyonkarahisar.jpg" />
-    <Resource Include="Resource\背景\地图\Agri.jpg" />
-    <Resource Include="Resource\背景\地图\Aksaray.jpg" />
-    <Resource Include="Resource\背景\地图\Amasya.jpg" />
-    <Resource Include="Resource\背景\地图\Antalya.jpg" />
-    <Resource Include="Resource\背景\地图\Ardahan.jpg" />
-    <Resource Include="Resource\背景\地图\Artvin.jpg" />
-    <Resource Include="Resource\背景\地图\Aydin.jpg" />
-    <Resource Include="Resource\背景\地图\Balikesir.jpg" />
-    <Resource Include="Resource\背景\地图\Bartin.jpg" />
-    <Resource Include="Resource\背景\地图\Batman.jpg" />
-    <Resource Include="Resource\背景\地图\Bayburt.jpg" />
-    <Resource Include="Resource\背景\地图\Bilecik.jpg" />
-    <Resource Include="Resource\背景\地图\Bingol.jpg" />
-    <Resource Include="Resource\背景\地图\Bitlis.jpg" />
-    <Resource Include="Resource\背景\地图\Bolu.jpg" />
-    <Resource Include="Resource\背景\地图\Burdur.jpg" />
-    <Resource Include="Resource\背景\地图\bursa.jpg" />
-    <Resource Include="Resource\背景\地图\Canakkale.jpg" />
-    <Resource Include="Resource\背景\地图\Cankiri.jpg" />
-    <Resource Include="Resource\背景\地图\Corum.jpg" />
-    <Resource Include="Resource\背景\地图\Denizli.jpg" />
-    <Resource Include="Resource\背景\地图\Diyarbakir.jpg" />
-    <Resource Include="Resource\背景\地图\Duzce.jpg" />
-    <Resource Include="Resource\背景\地图\Edirne.jpg" />
-    <Resource Include="Resource\背景\地图\Elazig.jpg" />
-    <Resource Include="Resource\背景\地图\Erzincan.jpg" />
-    <Resource Include="Resource\背景\地图\Erzurum.jpg" />
-    <Resource Include="Resource\背景\地图\Eskisehir.jpg" />
-    <Resource Include="Resource\背景\地图\Gumushane.jpg" />
-    <Resource Include="Resource\背景\地图\Hakkari.jpg" />
-    <Resource Include="Resource\背景\地图\Hatay.jpg" />
-    <Resource Include="Resource\背景\地图\Igdir.jpg" />
-    <Resource Include="Resource\背景\地图\Isparta.jpg" />
-    <Resource Include="Resource\背景\地图\Istanbul.jpg" />
-    <Resource Include="Resource\背景\地图\Izmir.jpg" />
-    <Resource Include="Resource\背景\地图\Kahramanmaras.jpg" />
-    <Resource Include="Resource\背景\地图\Karabuk.jpg" />
-    <Resource Include="Resource\背景\地图\Karaman.jpg" />
-    <Resource Include="Resource\背景\地图\Kilis.jpg" />
-    <Resource Include="Resource\背景\地图\Kirikkale.jpg" />
-    <Resource Include="Resource\背景\地图\Kirklareli.jpg" />
-    <Resource Include="Resource\背景\地图\Kirsehir.jpg" />
-    <Resource Include="Resource\背景\地图\Kocaeli.jpg" />
-    <Resource Include="Resource\背景\地图\Konya.jpg" />
-    <Resource Include="Resource\背景\地图\Kutahya.jpg" />
-    <Resource Include="Resource\背景\地图\Malatya.jpg" />
-    <Resource Include="Resource\背景\地图\Manisa.jpg" />
-    <Resource Include="Resource\背景\地图\Mersin.jpg" />
-    <Resource Include="Resource\背景\地图\Mugla.jpg" />
-    <Resource Include="Resource\背景\地图\Mus.jpg" />
-    <Resource Include="Resource\背景\地图\Nevsehir.jpg" />
-    <Resource Include="Resource\背景\地图\Nigde.jpg" />
-    <Resource Include="Resource\背景\地图\Ordu.jpg" />
-    <Resource Include="Resource\背景\地图\Osmaniye.jpg" />
-    <Resource Include="Resource\背景\地图\Siirt.jpg" />
-    <Resource Include="Resource\背景\地图\Sinop.jpg" />
-    <Resource Include="Resource\背景\地图\Sirnak.jpg" />
-    <Resource Include="Resource\背景\地图\Sivas.jpg" />
-    <Resource Include="Resource\背景\地图\Tekirdag.jpg" />
-    <Resource Include="Resource\背景\地图\Tokat.jpg" />
-    <Resource Include="Resource\背景\地图\Trabzon.jpg" />
-    <Resource Include="Resource\背景\地图\Tunceli.jpg" />
-    <Resource Include="Resource\背景\地图\Usak.jpg" />
-    <Resource Include="Resource\背景\地图\Van.jpg" />
-    <Resource Include="Resource\背景\地图\Yalova.jpg" />
-    <Resource Include="Resource\背景\地图\Yozgat.jpg" />
-    <Resource Include="Resource\背景\地图\Zonguldak.jpg" />
-    <Resource Include="Resource\背景\地图\安卡拉.jpg" />
-    <Resource Include="Resource\背景\地图\阿达纳.jpg" />
-    <Resource Include="Resource\背景\登录.jpg" />
+    <Content Include="Resource\背景\地图\Adiyaman.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Afyonkarahisar.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Agri.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Aksaray.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Amasya.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Antalya.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Ardahan.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Artvin.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Aydin.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Balikesir.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Bartin.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Batman.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Bayburt.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Bilecik.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Bingol.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Bitlis.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Bolu.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Burdur.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\bursa.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Canakkale.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Cankiri.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Corum.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Denizli.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Diyarbakir.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Duzce.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Edirne.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Elazig.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Erzincan.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Erzurum.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Eskisehir.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Gumushane.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Hakkari.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Hatay.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Igdir.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Isparta.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Istanbul.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Izmir.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Kahramanmaras.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Karabuk.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Karaman.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Kilis.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Kirikkale.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Kirklareli.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Kirsehir.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Kocaeli.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Konya.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Kutahya.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Malatya.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Manisa.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Mersin.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Mugla.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Mus.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Nevsehir.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Nigde.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Ordu.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Osmaniye.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Siirt.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Sinop.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Sirnak.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Sivas.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Tekirdag.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Tokat.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Trabzon.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Tunceli.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Usak.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Van.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Yalova.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Yozgat.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\Zonguldak.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\安卡拉.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\地图\阿达纳.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\背景\登录.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="Microsoft.Office.Core">
@@ -341,6 +487,7 @@
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
     </COMReference>
     <COMReference Include="Microsoft.Office.Interop.Excel">
       <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
@@ -350,6 +497,7 @@
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
       <EmbedInteropTypes>False</EmbedInteropTypes>
+      <Private>True</Private>
     </COMReference>
     <COMReference Include="VBIDE">
       <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
@@ -362,7 +510,17 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resource\exit.jpg" />
+    <Content Include="Resource\exit.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resource\CameraSelect.accdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resource\main_map.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

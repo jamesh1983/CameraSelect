@@ -25,7 +25,7 @@
             <ColumnDefinition Width="17*"/>
             <ColumnDefinition Width="60*"/>
         </Grid.ColumnDefinitions>
-        <Image Source="Resource/登录.jpg" Stretch="Fill" Cursor="Arrow" Grid.RowSpan="7" Grid.ColumnSpan="4" StretchDirection="DownOnly"/>
+        <Image Source="Resource/登录.jpg" Stretch="Fill" Cursor="Arrow" Grid.RowSpan="7" Grid.ColumnSpan="4"/>
         <TextBox x:Name="username" TextWrapping="Wrap" VerticalContentAlignment="Center" Foreground="White" BorderBrush="{x:Null}" SelectionBrush="{x:Null}" Cursor="Hand" Grid.Row="1" Grid.Column="2">
             <TextBox.Background>
                 <ImageBrush Stretch="None"/>

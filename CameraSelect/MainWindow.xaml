@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:CameraSelect"
         xmlns:Odbc="clr-namespace:System.Data.Odbc;assembly=System.Data" x:Name="mainfrm" x:Class="MainWindow"
         mc:Ignorable="d"
-        Title="FORMAP/G-PS" Width="1024" Height="720" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Black" BorderThickness="1" Topmost="True">
+        Title="FORMAP/G-PS" Width="1024" Height="720" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Black" BorderThickness="1">
     <Grid x:Name="MyGrid" Margin="0,0,0,33" Background="Black">
         <Grid.ColumnDefinitions>
             <ColumnDefinition x:Name="MyGridColumn1" Width="100"/>

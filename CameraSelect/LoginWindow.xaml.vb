@@ -7,7 +7,7 @@ Public Class LoginWindow
         Dim ID_Table As New Data.DataSet()
         Dim ComfirmationString As String
         'Dim MyConnectionString As String ' = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + System.AppDomain.CurrentDomain.BaseDirectory + "istanbul.xlsx;Extended Properties='Excel 8.0;HDR=False;IMEX=1'"
-        ComfirmationString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=" + System.AppDomain.CurrentDomain.BaseDirectory + "CameraSelect.accdb"
+        ComfirmationString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=" + System.AppDomain.CurrentDomain.BaseDirectory + "Resource/CameraSelect.accdb"
         Dim UPConn As New OleDbConnection(ComfirmationString)
         UPConn.Open()
         Dim MyIDSQL As String = "SELECT User, Password FROM User_Table"

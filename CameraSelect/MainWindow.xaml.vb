@@ -45,14 +45,14 @@ Class MainWindow
         Dim i As Int16
         Dim j As Int16
         Dim address As Uri
-        address = New Uri(System.AppDomain.CurrentDomain.BaseDirectory + "main_map.jpg")
+        address = New Uri(System.AppDomain.CurrentDomain.BaseDirectory + "Resource/main_map.jpg")
         web_browser.Source = address
         Me.Height = My.Computer.Screen.Bounds.Height
         Me.Width = My.Computer.Screen.Bounds.Width
         Me.WindowState = WindowState.Maximized
         'Myloading_window.Show()
         Try
-            MyConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=" + System.AppDomain.CurrentDomain.BaseDirectory + "CameraSelect.accdb"
+            MyConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=" + System.AppDomain.CurrentDomain.BaseDirectory + "Resource/CameraSelect.accdb"
             OleConn = New OleDbConnection(MyConnectionString)
             OleConn.Open()
             MySQL = "SELECT NationName FROM NationName"     '注意这里用到真实的名称
@@ -73,7 +73,7 @@ Class MainWindow
                 .Header = MyTable.Tables(0).Rows(i).Item(0)
             }
             Try
-                MyConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=" + System.AppDomain.CurrentDomain.BaseDirectory + "CameraSelect.accdb"
+                MyConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=" + System.AppDomain.CurrentDomain.BaseDirectory + "Resource/CameraSelect.accdb"
                 OleConn = New OleDbConnection(MyConnectionString)
                 OleConn.Open()
                 MySQL = "SELECT DistrictName FROM MapName WHERE NationName = '" + MapItem.Header + "'"  '注意这里用到真实的名称
@@ -124,7 +124,7 @@ Class MainWindow
         web_browser.Source = address
         Try
             Dim MyConnectionString As String
-            MyConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=" + System.AppDomain.CurrentDomain.BaseDirectory + "CameraSelect.accdb"
+            MyConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=" + System.AppDomain.CurrentDomain.BaseDirectory + "Resource/CameraSelect.accdb"
             Dim OleConn As New OleDbConnection(MyConnectionString)
             OleConn.Open()
             Dim MySQL As String = "SELECT IP, description FROM IP_Table"
@@ -146,11 +146,11 @@ Class MainWindow
         Dim Temp_MenuItem As Controls.MenuItem
         Dim address As Uri
         Temp_MenuItem = CType(sender, Controls.MenuItem)
-        address = New Uri(System.AppDomain.CurrentDomain.BaseDirectory + "map\地图\地图\" + Temp_MenuItem.Header + ".jpg")
+        address = New Uri(System.AppDomain.CurrentDomain.BaseDirectory + "Resource\背景\地图\" + Temp_MenuItem.Header + ".jpg")
         web_browser.Source = address
         Try
             Dim MyConnectionString As String
-            MyConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=" + System.AppDomain.CurrentDomain.BaseDirectory + "CameraSelect.accdb"
+            MyConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=" + System.AppDomain.CurrentDomain.BaseDirectory + "Resource/CameraSelect.accdb"
             Dim OleConn As New OleDbConnection(MyConnectionString)
             OleConn.Open()
             Dim MySQL As String = "SELECT IP, description FROM IP_Table WHERE city = '" + Temp_MenuItem.Header + "'"
@@ -178,25 +178,30 @@ Class MainWindow
         Dim address As Uri
         str = "http://Admin:123456@" + str + "/ie.html"
         address = New Uri(str)
-        Select Case ScreenStatus
-            Case ScreenState.FullScreen
-                web_browser.Source = address
-            Case ScreenState.SplitScreen
-                Select Case BrowserNow
-                    Case FoucedWebBrowser.WebBrowser1
-                        web_browser.Source = address
-                        BrowserNow = FoucedWebBrowser.WebBrowser2
-                    Case FoucedWebBrowser.WebBrowser2
-                        web_browser_2.Source = address
-                        BrowserNow = FoucedWebBrowser.WebBrowser3
-                    Case FoucedWebBrowser.WebBrowser3
-                        web_browser_3.Source = address
-                        BrowserNow = FoucedWebBrowser.WebBrowser4
-                    Case FoucedWebBrowser.WebBrowser4
-                        web_browser_4.Source = address
-                        BrowserNow = FoucedWebBrowser.WebBrowser1
-                End Select
-        End Select
+        Try
+            Select Case ScreenStatus
+                Case ScreenState.FullScreen
+                    web_browser.Source = address
+                Case ScreenState.SplitScreen
+                    Select Case BrowserNow
+                        Case FoucedWebBrowser.WebBrowser1
+                            web_browser.Source = address
+                            BrowserNow = FoucedWebBrowser.WebBrowser2
+                        Case FoucedWebBrowser.WebBrowser2
+                            web_browser_2.Source = address
+                            BrowserNow = FoucedWebBrowser.WebBrowser3
+                        Case FoucedWebBrowser.WebBrowser3
+                            web_browser_3.Source = address
+                            BrowserNow = FoucedWebBrowser.WebBrowser4
+                        Case FoucedWebBrowser.WebBrowser4
+                            web_browser_4.Source = address
+                            BrowserNow = FoucedWebBrowser.WebBrowser1
+                    End Select
+            End Select
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+
     End Sub
 
     Private Sub MenuItem_Close_Click(sender As Object, e As RoutedEventArgs)
@@ -220,7 +225,7 @@ Class MainWindow
             Case 1
                 Try
                     Dim MyConnectionString As String = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source="
-                    MyConnectionString += System.AppDomain.CurrentDomain.BaseDirectory + "CameraSelect.accdb"
+                    MyConnectionString += System.AppDomain.CurrentDomain.BaseDirectory + "Resource/CameraSelect.accdb"
                     Dim OleConn As New OleDbConnection(MyConnectionString)
                     OleConn.Open()
                     Dim MySQL As String = "INSERT INTO [IP_Table] ([IP], [description]) VALUES('" + str1 + "','" + str2 + str3 + "')"
@@ -245,7 +250,7 @@ Class MainWindow
         If Setup_Frm.PS_Return_Value Then
             Try
                 Dim MyConnectionString As String
-                MyConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=" + System.AppDomain.CurrentDomain.BaseDirectory + "CameraSelect.accdb"
+                MyConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=" + System.AppDomain.CurrentDomain.BaseDirectory + "Resource/CameraSelect.accdb"
                 Dim OleConn As New OleDbConnection(MyConnectionString)
                 OleConn.Open()
                 Dim MySQL As String = "SELECT User, Password FROM User_Table WHERE User = '" + Temp_str1 + "'"
@@ -260,7 +265,7 @@ Class MainWindow
                         If Temp_str3 = Temp_str4 Then
                             Try
                                 Dim UpdateConnString As String = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source="
-                                UpdateConnString += System.AppDomain.CurrentDomain.BaseDirectory + "CameraSelect.accdb"
+                                UpdateConnString += System.AppDomain.CurrentDomain.BaseDirectory + "Resource/CameraSelect.accdb"
                                 Dim UpdConn As New OleDbConnection(UpdateConnString)
                                 UpdConn.Open()
                                 Dim UpdSQL As String = "UPDATE User_Table SET [Password] = '" + Temp_str3 + "' WHERE [User] = '" + Temp_str1 + "'"
@@ -306,7 +311,7 @@ Class MainWindow
                 Original_DataAdapter.Fill(MyDataSet)
                 OleConn.Close()
                 Dim NewConnStr As String = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source="
-                NewConnStr += System.AppDomain.CurrentDomain.BaseDirectory + "CameraSelect.accdb"
+                NewConnStr += System.AppDomain.CurrentDomain.BaseDirectory + "Resource/CameraSelect.accdb"
                 Dim NewOleConn As New OleDbConnection(NewConnStr)
                 NewOleConn.Open()
                 Dim NewDataAdapter As New OleDbDataAdapter(MySQL, NewOleConn)
@@ -331,7 +336,7 @@ Class MainWindow
         MyOutputWindow.IsInput = False
         If MyOutputWindow.ShowDialog() = Forms.DialogResult.OK Then
             Dim MyConnectionString As String = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source="
-            MyConnectionString += System.AppDomain.CurrentDomain.BaseDirectory + "CameraSelect.accdb"
+            MyConnectionString += System.AppDomain.CurrentDomain.BaseDirectory + "Resource/CameraSelect.accdb"
             Dim OleConn As New OleDbConnection(MyConnectionString)
             OleConn.Open()
             Dim MySQL As String = "SELECT IP, description FROM IP_Table"
@@ -377,7 +382,7 @@ Class MainWindow
         TempSearchStr = SearchingInput.Text
         Try
             Dim MyConnectionString As String
-            MyConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=" + System.AppDomain.CurrentDomain.BaseDirectory + "CameraSelect.accdb"
+            MyConnectionString = "Provider = Microsoft.ACE.OLEDB.12.0;Data Source=" + System.AppDomain.CurrentDomain.BaseDirectory + "Resource/CameraSelect.accdb"
             Dim OleConn As New OleDbConnection(MyConnectionString)
             OleConn.Open()
             Dim MySQL As String = "SELECT IP, description FROM IP_Table WHERE IP LIKE '" + TempSearchStr + "'" + " or description LIKE '" + TempSearchStr + "'"
